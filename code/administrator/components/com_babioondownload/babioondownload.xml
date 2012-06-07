@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="component" version="2.5" method="upgrade">
+	<name>COM_BABIOONDOWNLOAD</name>
+	<creationDate>May 2012</creationDate>
+	<author>Robert Deutz</author>
+	<copyright>Robert Deutz Business Solution (rdbs.de)</copyright>
+	<license>GNU General Public License version 3</license>
+	<authorEmail>contact@babioon.com</authorEmail>
+	<authorUrl>babioon.com</authorUrl>
+	<version>1.1</version>
+	<description>COM_BABIOONDOWNLOAD_XML_DESCRIPTION</description>
+
+	<files folder="site">
+		<filename>babioondownload.php</filename>
+	</files>	
+		
+	<administration>
+    	<menu link="option=com_babioondownload&amp;view=downloads" view="downloads">COM_BABIOONDOWNLOAD</menu>
+		<files folder="admin">
+		  	<filename>babioondownload.php</filename>
+		</files>
+	</administration>		
+
+</extension>
