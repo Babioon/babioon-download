@@ -21,7 +21,4 @@ class BabioonDownloadController extends JController
 		parent::__construct($config);
 		$this->default_view = 'downloads';
 	}
-	
-	
-	
 }

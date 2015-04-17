@@ -1,10 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
-<config>
- <params>
-  <param name="verbose" type="radio" default="0" label="RDDOWNLOAD_VERBOSE" description="RDDOWNLOAD_VERBOSETIP">
-	<option value="0">RDDOWNLOAD_NO</option>
-	<option value="1">RDDOWNLOAD_YES</option>
-  </param>
-  <param name="downloaddir" type="text" default="downloads" label="RDDOWNLOAD_DOWNLOADDIR" description="RDDOWNLOAD_DOWNLOADDIRTIP" />
- </params>
-</config>
+
+	<config>
+		<fieldset name="component"
+			label="COM_BABIOONDOWNLOAD_FIELDSET_CONFIG_LABEL"
+			description="COM_BABIOONDOWNLOAD_FIELDSET_CONFIG_DESC">
+			
+			<field name="verbose" type="radio"
+					default="0"
+					description="COM_BABIOONDOWNLOAD_VERBOSE_DESC"
+					label="COM_BABIOONDOWNLOAD_VERBOSE_LABEL"
+			>
+				<option value="1">JYES</option>
+				<option value="0">JNO</option>
+			</field>
+			
+			<field name="downloaddir" type="text" default="downloads" label="COM_BABIOONDOWNLOAD_DOWNLOADDIR_LABEL" description="COM_BABIOONDOWNLOAD_DOWNLOADDIR_DESC" />
+			
+		</fieldset>
+		
+		<fieldset
+			name="permissions"
+			label="JCONFIG_PERMISSIONS_LABEL"
+			description="JCONFIG_PERMISSIONS_DESC"
+			>
+	
+			<field
+				name="rules"
+				type="rules"
+				label="JCONFIG_PERMISSIONS_LABEL"
+				class="inputbox"
+				filter="rules"
+				validate="rules"
+				component="com_babioondownload"
+				section="component" />
+		</fieldset>
+	</config>

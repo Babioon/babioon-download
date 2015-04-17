@@ -1,22 +1,22 @@
 <?php
 /**
- * babioon koorga
+ * babioon download
  * @author Robert Deutz
  * @copyright Robert Deutz Business Solution
- * @package BABIOON_KOORGA
+ * @package BABIOON_DOWNLOAD
  **/
 
 // No direct access
 defined('_JEXEC') or die;
 
 jimport('joomla.application.component.view');
-JLoader::register('BabioonKoorgaHelpers', JPATH_COMPONENT.'/helpers/helperss.php');
+
 
 /**
- * View to edit a newsletter.
+ * View to edit a download.
 
  */
-class BabioonKoorgaViewAddress extends JView
+class BabioonDownloadViewDownload extends JView
 {
 	protected $form;
 	protected $item;
@@ -44,8 +44,6 @@ class BabioonKoorgaViewAddress extends JView
 
 	/**
 	 * Add the page title and toolbar.
-	 *
-	 * @since	1.6
 	 */
 	protected function addToolbar()
 	{
@@ -59,34 +57,29 @@ class BabioonKoorgaViewAddress extends JView
 		$isNew		= ($this->item->id == 0);
 		$checkedOut	= !($this->item->checked_out == 0 || $this->item->checked_out == $userId);
 		
-		$canDo		= BabioonKoorgaHelpers::getActions();
-
-		JToolBarHelper::title($isNew ? JText::_('COM_BABIOONKOORGA_ADDRESS_NEW') : JText::_('COM_BABIOONKOORGA_ADDRESS_EDIT'), 'babioon.png');
+		$canDo = BabioonDownloadHelpers::getActions();
+		JToolBarHelper::title($isNew ? JText::_('COM_BABIOONDOWNLOAD_DOWNLOAD_NEW') : JText::_('COM_BABIOONDOWNLOAD_DOWNLOAD_EDIT'), 'babioon.png');
 
 		// If not checked out, can save the item.
-		if (!$checkedOut && ($canDo->get('core.edit') || count($user->getAuthorisedCategories('com_babioonkoorga', 'core.create')) > 0)) {
-			JToolBarHelper::apply('address.apply');
-			JToolBarHelper::save('address.save');
+		if (!$checkedOut && ($canDo->get('core.edit') || count($user->getAuthorisedCategories('com_babioondownload', 'core.create')) > 0)) {
+			JToolBarHelper::apply('download.apply');
+			JToolBarHelper::save('download.save');
 
 			if ($canDo->get('core.create')) {
-				JToolBarHelper::save2new('address.save2new');
+				JToolBarHelper::save2new('download.save2new');
 			}
 		}
 
 		// If an existing item, can save to a copy.
 		if (!$isNew && $canDo->get('core.create')) {
-			JToolBarHelper::save2copy('address.save2copy');
+			JToolBarHelper::save2copy('download.save2copy');
 		}
 
 		if (empty($this->item->id))  {
-			JToolBarHelper::cancel('address.cancel');
+			JToolBarHelper::cancel('download.cancel');
 		}
 		else {
-			JToolBarHelper::cancel('address.cancel', 'JTOOLBAR_CLOSE');
+			JToolBarHelper::cancel('download.cancel', 'JTOOLBAR_CLOSE');
 		}
-		/*
-		JToolBarHelper::divider();
-		JToolBarHelper::help('JHELP_COMPONENTS_BANNERS_BANNERS_EDIT');
-		*/
 	}
 }

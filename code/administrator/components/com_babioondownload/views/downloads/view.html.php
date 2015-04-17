@@ -57,7 +57,7 @@ class BabioonDownloadViewDownloads extends JView
 	    
 		$user = JFactory::getUser();
 		$canDo = BabioonDownloadHelpers::getActions();
-		JToolBarHelper::title(JText::_('BABIOONDOWNLOAD_DOWNLOADS'), 'babioon.png');
+		JToolBarHelper::title(JText::_('COM_BABIOONDOWNLOAD_DOWNLOADS'), 'babioon.png');
 		JToolBarHelper::addNew('download.add');
 		JToolBarHelper::editList('download.edit');
 

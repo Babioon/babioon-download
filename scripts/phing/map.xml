@@ -16,5 +16,14 @@
 			<property name="filebase" value="${packagedir}/${projectname}" />
 			<property name="pname" value="com_babioondownload" />	
 		</phingcall>
+		
+		<!-- link content plugin-->
+		<phingcall target="symboliclink">
+			<property name="filebase" value="${packagedir}/${projectname}" />
+			<property name="targetdir" value="${webserver.root}" />
+			<property name="source" value="${filebase}/code/site/plugins/content/babioondownload" />
+			<property name="target" value="${targetdir}/plugins/content/babioondownload" />
+		</phingcall>
+		
 	</target>
 </project>

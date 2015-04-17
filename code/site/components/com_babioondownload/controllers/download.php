@@ -23,7 +23,7 @@ class RdDownloadController extends JController
 		$config  		= JComponentHelper::getParams( 'com_rd_download' );
 		$verbose 		= $config->get ( 'verbose' );
 		$downloaddir 	= $config->get('downloaddir');		
-    	$id 	 		= JRequest::getVar('id');
+    	$id 	 		= (int) JRequest::getVar('id');
 		$db 			= JFactory::getDBO();
 
 		$query 	= "SELECT * FROM #__rd_download WHERE id = $id";

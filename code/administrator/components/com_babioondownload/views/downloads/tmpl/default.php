@@ -3,7 +3,7 @@
  * babioon koorga
  * @author Robert Deutz
  * @copyright Robert Deutz Business Solution
- * @package BABIOON_KOORGA
+ * @package BABIOON_DOWNLOAD
  **/
 
 // no direct access
@@ -19,11 +19,11 @@ $listDirn	= $this->escape($this->state->get('list.direction'));
 $params		= (isset($this->state->params)) ? $this->state->params : new JObject();
 
 
-$canCreate	= $user->authorise('core.create',		'com_babioon.address');
-$canEdit	= $user->authorise('core.edit',			'com_babioon.address');
+$canCreate	= $user->authorise('core.create',		'com_babioondownload.download');
+$canEdit	= $user->authorise('core.edit',			'com_babioondownload.download');
 
 ?>
-<form action="<?php echo JRoute::_('index.php?option=com_babioonkoorga&view=addresses'); ?>" method="post" name="adminForm" id="adminForm">
+<form action="<?php echo JRoute::_('index.php?option=com_babioondownload&view=downloads'); ?>" method="post" name="adminForm" id="adminForm">
 	<fieldset id="filter-bar">
 		<div class="filter-search fltlft">
 			<label class="filter-search-lbl" for="filter_search"><?php echo JText::_('JSEARCH_FILTER_LABEL'); ?></label>
@@ -48,13 +48,13 @@ $canEdit	= $user->authorise('core.edit',			'com_babioon.address');
 					<input type="checkbox" name="checkall-toggle" value="" title="<?php echo JText::_('JGLOBAL_CHECK_ALL'); ?>" onclick="Joomla.checkAll(this)" />
 				</th>
 				<th>
-					<?php echo JHtml::_('grid.sort',  'COM_BABIOONKOORGA_HEADING_STREET', 'a.street', $listDirn, $listOrder); ?>
+					<?php echo JHtml::_('grid.sort',  'COM_BABIOONDOWNLOAD_HEADING_TEXT', 'a.text', $listDirn, $listOrder); ?>
 				</th>
 				<th>
-					<?php echo JHtml::_('grid.sort',  'COM_BABIOONKOORGA_HEADING_HOUSENUMBER', 'a.housenumber', $listDirn, $listOrder); ?>
+					<?php echo JHtml::_('grid.sort',  'COM_BABIOONDOWNLOAD_HEADING_FILENAME', 'a.filename', $listDirn, $listOrder); ?>
 				</th>
 				<th>
-					<?php echo JHtml::_('grid.sort',  'COM_BABIOONKOORGA_HEADING_CITY', 'a.city', $listDirn, $listOrder); ?>
+					<?php echo JHtml::_('grid.sort',  'COM_BABIOONDOWNLOAD_HEADING_CLICKS', 'a.clicks', $listDirn, $listOrder); ?>
 				</th>
 				<th width="5%">
 					<?php echo JHtml::_('grid.sort', 'JSTATUS', 'a.state', $listDirn, $listOrder); ?>
@@ -84,17 +84,17 @@ $canEdit	= $user->authorise('core.edit',			'com_babioon.address');
 						<?php echo JHtml::_('jgrid.checkedout', $i, $item->editor, $item->checked_out_time, 'babioonkoorga.', $canCheckin); ?>
 					<?php endif; ?>
 					<?php if ($canEdit) : ?>
-						<a href="<?php echo JRoute::_('index.php?option=com_babioonkoorga&task=address.edit&id='.(int) $item->id); ?>">
-							<?php echo $this->escape($item->street); ?></a>
+						<a href="<?php echo JRoute::_('index.php?option=com_babioondownload&task=download.edit&id='.(int) $item->id); ?>">
+							<?php echo $this->escape($item->text); ?></a>
 					<?php else : ?>
-							<?php echo $this->escape($item->street); ?>
+							<?php echo $this->escape($item->text); ?>
 					<?php endif; ?>
 				</td>
 				<td>
-				    <?php echo $this->escape($item->housenumber); ?>
+				    <?php echo $this->escape($item->filename); ?>
 				</td>
 				<td>
-				    <?php echo $this->escape($item->city); ?>
+				    <?php echo $this->escape($item->clicks); ?>
 				</td>
 				<td class="center">
 					<?php echo JHtml::_('jgrid.published', $item->state, $i, 'adresses.', $canEdit); ?>

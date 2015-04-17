@@ -10,14 +10,30 @@
 	<version>1.1</version>
 	<description>COM_BABIOONDOWNLOAD_XML_DESCRIPTION</description>
 
+	<media folder="media">
+		<folder>babioon</folder>
+	</media>
+
 	<files folder="site">
 		<filename>babioondownload.php</filename>
 	</files>	
 		
 	<administration>
-    	<menu link="option=com_babioondownload&amp;view=downloads" view="downloads">COM_BABIOONDOWNLOAD</menu>
+    	<menu link="option=com_babioondownload&amp;view=downloads" view="downloads" img="../media/babioon/images/icon-16-babioon.png">COM_BABIOONDOWNLOAD</menu>
+    	
 		<files folder="admin">
+			<folder>controllers</folder>
+			<folder>helpers</folder>
+			<folder>install</folder>
+			<folder>models</folder>
+			<folder>tables</folder>
+			<folder>views</folder>
+			<filename>access.xml</filename>
 		  	<filename>babioondownload.php</filename>
+		  	<filename>changelog.php</filename>
+		  	<filename>config.xml</filename>
+		  	<filename>controller.php</filename>
+		  	<filename>index.html</filename>
 		</files>
 	</administration>		
 
